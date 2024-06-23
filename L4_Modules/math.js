@@ -7,9 +7,9 @@ function sub(a, b) {
 }
 
 function mul(a, b) {
-    return a * b;
+    return a * b * a;
 }
-
+console.log("Arbaz Ansari")
 // module.exports = add;
 // module.exports = sub; // sub will overwrite add
 
