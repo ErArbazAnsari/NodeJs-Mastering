@@ -1,4 +1,4 @@
-const fs = require("fs"); // fs is built in module in javascript
+const fs = require("fs"); // fs is built in module in javascript used for -> file handling
 
 console.log(fs);
 
@@ -10,7 +10,7 @@ fs.writeFileSync(
 );
 const data = fs.readFileSync("./L5_File_Handling/myData.txt");
 console.log(data);
-console.log(data.toString());
+console.log("Data Reading sync, data.toString(): ", data.toString());
 
 // ***************************************
 //async
@@ -52,11 +52,10 @@ fs.cpSync("./L5_File_Handling/contact.txt", "./L5_File_Handling/myNewData.txt");
 
 // ***************************************
 // deleting a file
-fs.unlinkSync("./L5_File_Handling/myNewData.txt");
+// fs.unlinkSync("./L5_File_Handling/myNewData.txt");
 
 // ***************************************
 // statsync to get info of a file
-console.log(fs.statSync("./L5_File_Handling/contact.txt"));
+console.log("file info: ", fs.statSync("./L5_File_Handling/contact.txt"));
 
-// making directory
-fs.mkdirSync("./L5_File_Handling/Content NewData YesData", (recursive = true));
+fs.mkdirSync("./L5_File_Handling/myFolder/mySecondFolder", { recursive: true });
