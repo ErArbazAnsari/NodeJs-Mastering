@@ -17,7 +17,9 @@ const fs = require("fs");
 const res = require("express/lib/response");
 
 const myServer = http.createServer((req, res) => {
-    const log = `${Date.now()} New Request Received, RequestId -> ${(counter += 1)}\n`;
+    const log = `${Date.localeString(
+        Date.now()
+    )} New Request Received, RequestId -> ${(counter += 1)}\n`;
     fs.appendFile("./L7_HTTP_Web_Server/myLog.txt", log, (err, data) => {
         if (err) {
             console.log(err);
