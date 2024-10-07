@@ -8,7 +8,7 @@ const PORT = 3000;
 app.use(express.urlencoded());
 
 
-// routes
+// all routes
 app.get("/", (req, res) => {
     return res.send("Hello from server.");
 });
