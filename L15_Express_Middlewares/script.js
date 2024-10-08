@@ -5,8 +5,29 @@ const fs = require("fs");
 
 const PORT = 3000;
 // middleware
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: false }));
 
+app.use((req, res, next) => {
+    console.log("Hello from middleware 3");
+    fs.appendFile(
+        "logData.txt",
+        `${new Date().toISOString()} : ${req.method}, Path-> ${req.url}, IP->${
+            req.ip
+        }\n`,
+        (err) => {
+            if (err) {
+                console.log("Error writing to log file:", err);
+            }
+        }
+    );
+    next();
+});
+
+app.use((req, res, next) => {
+    console.log("Hello from middleware 3");
+    next();
+    // return res.json({ message: "error found during milleware 3" });
+});
 
 // all routes
 app.get("/", (req, res) => {
