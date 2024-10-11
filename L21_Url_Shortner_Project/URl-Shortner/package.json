@@ -1,7 +1,8 @@
 {
-    "name": "l21_url_shortner_project",
+    "name": "url-shortner",
     "version": "1.0.0",
     "main": "index.js",
+    "type": "commonjs",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "nodemon server.js"
@@ -12,6 +13,9 @@
     "description": "",
     "dependencies": {
         "dotenv": "^16.4.5",
-        "express": "^4.21.1"
+        "express": "^4.21.1",
+        "mongoose": "^8.7.1",
+        "nanoid": "^5.0.7",
+        "shortid": "^2.2.16"
     }
 }
