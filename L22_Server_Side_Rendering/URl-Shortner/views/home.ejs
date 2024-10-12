@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>URL Shortener Project</title>
+        <style>
+            /* Reset some default styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Arial", sans-serif;
+                background-color: #f0f0f0;
+                color: #333;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
+            .container {
+                max-width: 600px;
+                margin: 50px auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            h1 {
+                text-align: center;
+                margin-bottom: 20px;
+                font-size: 2rem;
+                color: #4a90e2;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            label {
+                font-size: 1rem;
+                margin-bottom: 5px;
+                color: #555;
+            }
+
+            input[type="text"] {
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 1rem;
+                width: 100%;
+            }
+
+            button {
+                padding: 10px;
+                border: none;
+                background-color: #4a90e2;
+                color: white;
+                font-size: 1rem;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            button:hover {
+                background-color: #357ab8;
+            }
+
+            .result {
+                margin-top: 20px;
+                text-align: center;
+            }
+
+            .result p {
+                font-size: 1.2rem;
+            }
+
+            .result span {
+                background-color: #ffeb3b;
+                padding: 5px 10px;
+                border-radius: 5px;
+            }
+
+            /* Theme toggle styles */
+            .theme-toggle {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                cursor: pointer;
+                background-color: #4a90e2;
+                color: white;
+                padding: 10px;
+                border-radius: 50%;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .dark-mode {
+                background-color: #333;
+                color: #f0f0f0;
+            }
+
+            .dark-mode .container {
+                background-color: #444;
+                color: #f0f0f0;
+            }
+
+            .dark-mode input[type="text"] {
+                border-color: #555;
+                background-color: #666;
+                color: white;
+            }
+
+            .dark-mode button {
+                background-color: #3b5998;
+            }
+
+            .dark-mode button:hover {
+                background-color: #2d4373;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>URL Shortener Project</h1>
+            <form method="POST" action="/url">
+                <label for="url">Original URL</label>
+                <input
+                    type="text"
+                    name="url"
+                    id="url"
+                    placeholder="https://www.example.com"
+                />
+                <button type="submit">Generate</button>
+            </form>
+
+            <!-- Generated URL display -->
+            <div class="result">
+                <% if (locals.id) { %>
+                <p>
+                    New Url:
+                    <span>http://localhost:3000/<%= id %></span>
+                </p>
+                <% } %>
+            </div>
+        </div>
+    </body>
+</html>
